@@ -18,27 +18,35 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+		Get your Star Trek Quotes here!  
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
-
+  	If you need to add some levity to a group talk or lesson, let us help you by grabbing some loosely related quotes from the original Star Trek.
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  Enter a topic and our app will grab a list or relevant quotes from Star Trek, The Original Series.  
+  Nothing spices up a conversation like the overly dramatic tone of Captain Kirk, or the enlightening but insensitive comments of Mr. Spock.
 
 ## Problem ##
   > Describe the problem your product solves.
-
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+  Our product takes a topic submitted by the user, searches a database of Star Trek quotes for relevant matches,
+  and returns the 5 most relevant quotes for the topic.
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
+  	This product brings an otherwise dry (but informative) presentation into something that will "Boldy go where no man has gone before!"
 
 ## How to Get Started ##
   > Describe how easy it is to get started.
+  	Choose a word to describe your presentation topic, enter it in our homepage, and voila!  You have a list of spicy comments from Kirk, Spock, Scotty, and Bones.
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  	"This was quite entertaining to use.  It added a bit of nostalgia and humor to my presentation on affordable housing."
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+  	Bring you subject, topic, or idea for a presentation to startrekquotesbytopic.com.  You won't regret it.
