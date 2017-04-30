@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import List from './components/List.jsx';
-import TrekTitle from './components/TrekTitle.jsx';
+import MySiteTitle from './components/MySiteTitle.jsx';
+import QuoteReq from './components/QuoteReq.jsx';
 import Topic from './components/Topic.jsx';
 import QuoteList from './components/QuoteList.jsx';
 
@@ -14,13 +15,24 @@ class App extends React.Component {
     }
   }
 
-  componentDidMount() {
+  bringTheQuotes(userTopic) {
+    console.log("bringTheQuotes called, userTopic = ", userTopic);
+    var str = '';
     $.ajax({
-      url: '/items', 
+      type: 'POST',
+      url: '/quotes',
+      //contentType: 'application/json',
+
+      data: { 'userTopic': userTopic },
       success: (data) => {
-        this.setState({
-          items: data
-        })
+        console.log(data)
+        // res.on('data', function (chunk) {
+        //   str += chunk;
+        // });
+        // .on('end', () => {
+        //   console.log(str);
+        //   console.log('received response from POST req to /quotes: ');
+        // });
       },
       error: (err) => {
         console.log('err', err);
@@ -28,13 +40,17 @@ class App extends React.Component {
     });
   }
 
-  bringTheQuotes(userTopic) {
+  bringNewQuote() {
+    console.log("bringNewQuote called");
+    var str = '';
     $.ajax({
-      url: '/items', 
+      type: 'GET',
+      url: '/newquote',
+      //contentType: 'application/json',
+
+      //data: { 'userTopic': userTopic },
       success: (data) => {
-        this.setState({
-          items: data
-        })
+        console.log(data)
       },
       error: (err) => {
         console.log('err', err);
@@ -44,8 +60,8 @@ class App extends React.Component {
 
   render () {
     return (<div>
-      <TrekTitle awesometitle="Get Your Star Trek Quotes Here" />
-      <Topic />
+      <MySiteTitle awesometitle="Get Your Chuck Norris Quotes Here" />
+      <QuoteReq newreqhandler={this.bringNewQuote.bind(this)} />
       <h1>Quotes:</h1>
       <QuoteList items={this.state.items} />
       <List items={this.state.items} />
