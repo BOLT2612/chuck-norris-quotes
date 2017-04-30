@@ -1,9 +1,9 @@
 import React from 'react';
 
-const TrekTitle = (props) => (
+const MySiteTitle = (props) => (
   <div>
     <h2 className="awesome">{ props.awesometitle }</h2>
   </div>
 )
 
-export default TrekTitle;
+export default MySiteTitle;

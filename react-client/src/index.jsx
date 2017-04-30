@@ -6,12 +6,13 @@ import MySiteTitle from './components/MySiteTitle.jsx';
 import QuoteReq from './components/QuoteReq.jsx';
 import Topic from './components/Topic.jsx';
 import QuoteList from './components/QuoteList.jsx';
+import ShowCurrent from './components/ShowCurrent.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      items: []
+      value: 'Initial State'
     }
   }
 
@@ -42,15 +43,33 @@ class App extends React.Component {
 
   bringNewQuote() {
     console.log("bringNewQuote called");
-    var str = '';
+    // var str = '';
+    var objData ;
     $.ajax({
       type: 'GET',
       url: '/newquote',
-      //contentType: 'application/json',
+      success: (data) => {
+        objData = JSON.parse(data);
+        console.log(objData);
 
-      //data: { 'userTopic': userTopic },
+        this.setState({value: objData.value});
+        console.log("new state = ", this.state.value);
+      },
+      error: (err) => {
+        console.log('err', err);
+      }
+    });
+  }
+
+  keepThisQuote() {
+    console.log("keepThisQuote called");
+    $.ajax({
+      type: 'POST',
+      url: '/quotes',
+      data: { 'quoteToStore': this.state.value },
       success: (data) => {
         console.log(data)
+       
       },
       error: (err) => {
         console.log('err', err);
@@ -62,8 +81,9 @@ class App extends React.Component {
     return (<div>
       <MySiteTitle awesometitle="Get Your Chuck Norris Quotes Here" />
       <QuoteReq newreqhandler={this.bringNewQuote.bind(this)} />
-      <h1>Quotes:</h1>
-      <QuoteList items={this.state.items} />
+      <h2>Quotes:</h2>
+      <ShowCurrent currentquote={this.state.value} keepquotehandler={this.keepThisQuote.bind(this)} />
+
       <List items={this.state.items} />
     </div>)
   }
