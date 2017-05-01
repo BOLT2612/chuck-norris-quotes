@@ -14,11 +14,4 @@ class QuoteReq extends React.Component {
   }
 }
 
-// var QuoteReq = (props) => (
-//   <div>
-//     <button onClick={this.props.newreqhandler}>Get New Quotes
-//     </button>
-//   </div>
-// )
-
 export default QuoteReq;
