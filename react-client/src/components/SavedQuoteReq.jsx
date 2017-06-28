@@ -1,6 +1,6 @@
 import React from 'react';
 
-class QuoteReq extends React.Component {
+class SavedQuoteReq extends React.Component {
 	constructor(props) {
 		super(props);
 	}
@@ -8,10 +8,10 @@ class QuoteReq extends React.Component {
 	render() {
     return (
       //<button onClick={this.handleClick}>
-      <button onClick={this.props.newreqhandler}>Get New Quotes
+      <button onClick={this.props.savedreqhandler}>Get Saved Quotes
       </button>
     );
   }
 }
 
-export default QuoteReq;
+export default SavedQuoteReq;
