@@ -1,7 +1,5 @@
 node_modules
-<<<<<<< HEAD
 react-client/dist/bundle.js
 database-mongo/data/db
-database-mongo/data/db/*
-=======
->>>>>>> parent of 439a7f6... Updated _PRESS-RELEASE.md
+
+
