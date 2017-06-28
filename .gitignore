@@ -1,2 +1,4 @@
 node_modules
+react-client/dist/bundle.js
 database-mongo/data/db
+database-mongo/data/db/*

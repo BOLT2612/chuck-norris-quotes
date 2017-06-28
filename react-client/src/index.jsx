@@ -27,10 +27,6 @@ var items = [
     url: 'http://api.chucknorris.io/jokes/izjeqnjzteeqms8l8xgdhw',
     value: 'Chuck Norris knows the last digit of pi.' },
   { icon_url: 'https://assets.chucknorris.host/img/avatar/chuck-norris.png',
-    id: 'xuIKQFakSIiNX-8oOFqdLQ',
-    url: 'http://api.chucknorris.io/jokes/xuIKQFakSIiNX-8oOFqdLQ',
-    value: 'You know when you have that feeling that you\'ve seen all of this before....... That\'s just your life flashing before your eyes after chuck Norris roundhouse kicked you in the face.' },
-  { icon_url: 'https://assets.chucknorris.host/img/avatar/chuck-norris.png',
     id: 'OpUSVJvcRAWWej1HuZSRrw',
     url: 'http://api.chucknorris.io/jokes/OpUSVJvcRAWWej1HuZSRrw',
     value: 'When Chuck Norris finishes watching a useless 1 hour movie, he can get his 1 hour back.' } ];
@@ -107,7 +103,6 @@ class App extends React.Component {
       <SavedQuoteReq savedreqhandler={this.bringSavedQuotes.bind(this)} />
       <List items={this.state.savedQuotes} />
 
-      
     </div>)
   }
 }
