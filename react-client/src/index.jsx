@@ -7,6 +7,7 @@ import QuoteReq from './components/QuoteReq.jsx';
 import Topic from './components/Topic.jsx';
 import QuoteList from './components/QuoteList.jsx';
 import ShowCurrent from './components/ShowCurrent.jsx';
+<<<<<<< HEAD
 import SavedQuoteReq from './components/SavedQuoteReq.jsx';
 
 var items = [ 
@@ -32,14 +33,40 @@ var items = [
     value: 'When Chuck Norris finishes watching a useless 1 hour movie, he can get his 1 hour back.' } ];
 
 
+=======
+>>>>>>> parent of 439a7f6... Updated _PRESS-RELEASE.md
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      newQuote: {value: 'Initial State'},
-      savedQuotes: []
+      value: 'Initial State'
     }
+  }
+
+  bringTheQuotes(userTopic) {
+    console.log("bringTheQuotes called, userTopic = ", userTopic);
+    var str = '';
+    $.ajax({
+      type: 'POST',
+      url: '/quotes',
+      //contentType: 'application/json',
+
+      data: { 'userTopic': userTopic },
+      success: (data) => {
+        console.log(data)
+        // res.on('data', function (chunk) {
+        //   str += chunk;
+        // });
+        // .on('end', () => {
+        //   console.log(str);
+        //   console.log('received response from POST req to /quotes: ');
+        // });
+      },
+      error: (err) => {
+        console.log('err', err);
+      }
+    });
   }
 
   bringNewQuote() {
@@ -53,8 +80,8 @@ class App extends React.Component {
         objData = JSON.parse(data);
         console.log(objData);
 
-        this.setState({newQuote: objData});
-        console.log("new quote = ", this.state.newQuote.value);
+        this.setState({value: objData.value});
+        console.log("new state = ", this.state.value);
       },
       error: (err) => {
         console.log('err', err);
@@ -67,9 +94,9 @@ class App extends React.Component {
     $.ajax({
       type: 'POST',
       url: '/quotes',
-      data: this.state.newQuote,
+      data: { 'quoteToStore': this.state.value },
       success: (data) => {
-        console.log('We had success: ', data);
+        console.log(data)
        
       },
       error: (err) => {
@@ -78,31 +105,17 @@ class App extends React.Component {
     });
   }
 
-  bringSavedQuotes() {
-    console.log("bringSavedQuotes called");
-    var arrOfObjData;
-    $.ajax({
-      type: 'GET',
-      url: '/quotes',
-      success: (data) => {
-        arrOfObjData = JSON.parse(data);
-        console.log("bringSavedQuotes success: ", arrOfObjData);
-        this.setState({savedQuotes: arrOfObjData});
-      },
-      error: (err) => {
-        console.log('bringSavedQuotes err: ', err);
-      }
-    });
-  }
-
   render () {
     return (<div>
       <MySiteTitle awesometitle="Get Your Chuck Norris Quotes Here" />
       <QuoteReq newreqhandler={this.bringNewQuote.bind(this)} />
-      <ShowCurrent currentquote={this.state.newQuote.value} keepquotehandler={this.keepThisQuote.bind(this)} />
-      <SavedQuoteReq savedreqhandler={this.bringSavedQuotes.bind(this)} />
-      <List items={this.state.savedQuotes} />
+      <h2>Quotes:</h2>
+      <ShowCurrent currentquote={this.state.value} keepquotehandler={this.keepThisQuote.bind(this)} />
 
+<<<<<<< HEAD
+=======
+      <List items={this.state.items} />
+>>>>>>> parent of 439a7f6... Updated _PRESS-RELEASE.md
     </div>)
   }
 }

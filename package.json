@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "server-dev": "nodemon server/index.js",
-    "db-start": "mongod --dbpath database-mongo/data/db"
+    "server-dev": "nodemon server/index.js"
   },
   "author": "Beth Johnson",
   "license": "ISC",
@@ -18,11 +17,9 @@
     "webpack": "^2.2.1"
   },
   "dependencies": {
-    "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
     "express": "^4.15.0",
     "jquery": "^3.1.1",
-    "mongoose": "^4.9.6",
     "mysql": "^2.13.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
